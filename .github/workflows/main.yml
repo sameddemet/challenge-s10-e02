@@ -1,0 +1,36 @@
+name: Python Script
+
+on:
+  pull_request:
+    branches:
+      - master
+
+  push:
+    tags:
+      - '*'
+  
+  schedule:
+    - cron: '* 8 * * *'   # Déclenche  8h
+
+  workflow_dispatch:        # Permet d'exécuter manuellement le workflow
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Execute requirements.txt
+        run: |
+          pip install -r requirements.txt
+
+      - name: Execute le script python
+        uses: actions/setup-python@v4
+        run: |
+          python3 hello_world.py
