@@ -3,7 +3,7 @@ name: Python Script
 on:
   pull_request:
     branches:
-      - master
+      - main
 
   push:
     tags:
@@ -31,6 +31,5 @@ jobs:
           pip install -r requirements.txt
 
       - name: Execute le script python
-        uses: actions/setup-python@v4
         run: |
           python3 hello_world.py
