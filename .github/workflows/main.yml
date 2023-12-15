@@ -1,6 +1,7 @@
 name: Python Script
 
 on:
+  workflow_dispatch: {}     # Permet d'exécuter manuellement le workflow
   pull_request:
     branches:
       - main
@@ -11,8 +12,6 @@ on:
   
   schedule:
     - cron: '0 8 * * *'   # Déclenche  8h
-
-  workflow_dispatch: {}     # Permet d'exécuter manuellement le workflow
 
 jobs:
   build:
