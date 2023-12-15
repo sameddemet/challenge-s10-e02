@@ -1,10 +1,11 @@
 name: Python Script
 
 on:
-  workflow_dispatch: {}     # Permet d'exécuter manuellement le workflow
+  workflow_dispatch:     # Permet d'exécuter manuellement le workflow
   pull_request:
     branches:
       - main
+      - demo
 
   push:
     tags:
