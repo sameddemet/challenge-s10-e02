@@ -24,3 +24,6 @@ git push origin v1.1
 - J'ai déclenché manuellement le workflow via l'interface GitHub en utilisant le Workflow Dispatch.
 
 ---
+## Diffucuilties 
+Le main.yml, basé sur l'événement workflow_dispatch, n'est même pas affiché pendant que le code n'est pas sur la branche main (ou branche par défaut).
+Une fois que j'ai fait merge demo avec la branche main, workflow_dispatch foncionne.
