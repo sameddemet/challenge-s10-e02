@@ -10,7 +10,7 @@ on:
       - '*'
   
   schedule:
-    - cron: '* 8 * * *'   # Déclenche  8h
+    - cron: '0 8 * * *'   # Déclenche  8h
 
   workflow_dispatch:        # Permet d'exécuter manuellement le workflow
 
