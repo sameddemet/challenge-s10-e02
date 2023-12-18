@@ -8,6 +8,13 @@ jobs:
       - run: ls -la
       
   my-second-job:
+    needs: my-first-job
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -la
+  
+  my-third-job:
+    needs: [my-first-job, my-second-job]
     runs-on: ubuntu-latest
     steps:
       - run: ls -la
