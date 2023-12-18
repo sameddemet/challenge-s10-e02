@@ -11,7 +11,7 @@ jobs:
     needs: my-first-job
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+      - run: ls -la
   
   my-third-job:
     if: github.repository == 'sameddemet/challenge-s10-e02'
