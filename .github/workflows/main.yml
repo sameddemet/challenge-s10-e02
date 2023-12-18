@@ -1,21 +1,33 @@
-name: job-example-1
-
-on: [push]
+name: job-challenge-1 
+on: [push] 
 jobs:
-  my-first-job:
+  my_first_job:
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
+      - name: création du fichier
+        run: echo "lolo" > text.txt
+      - name: upload of file
+        uses: actions/upload-artifact@v3
+        with:
+          name: fichier
+          path: conf.json 
+       
+  my_second_job:
+    needs: my_first_job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download file
+        uses: actions/download-artifact@v3
+        with:
+          name: fichier
+      - name: cat
+        run: cat text.txt  
       
-  my-second-job:
-    needs: my-first-job
-    runs-on: ubuntu-latest
-    steps:
-      - run: ls -la
   
-  my-third-job:
-    if: github.repository == 'sameddemet/challenge-s10-e02'
-    needs: [my-first-job, my-second-job]
+  my_third_job:
+    if: github.repository == 'sebgenie/gitbub_actions'
+    needs: [my_first_job, my_second_job]
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
+      - name: Download file
+        run: ls
