@@ -25,7 +25,7 @@ jobs:
       
   
   my_third_job:
-    if: github.repository == 'samedemet/challenge-s10-e02'
+    if: github.repository == 'sameddemet/challenge-s10-e02'
     needs: [my_first_job, my_second_job]
     runs-on: ubuntu-latest
     steps:
