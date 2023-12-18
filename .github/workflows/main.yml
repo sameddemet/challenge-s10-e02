@@ -1,35 +1,13 @@
-name: Python Script
+name: job-example-1
 
-on:
-  workflow_dispatch:     # Permet d'exécuter manuellement le workflow
-  pull_request:
-    branches:
-      - main
-      - demo
-
-  push:
-    tags:
-      - '*'
-  
-  schedule:
-    - cron: '0 8 * * *'   # Déclenche  8h
-
+on: [push]
 jobs:
-  build:
-    runs-on: self-hosted
+  my-first-job:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - run: ls -la
       
-      - name: Install Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Execute requirements.txt
-        run: |
-          pip install -r requirements.txt
-
-      - name: Execute le script python
-        run: |
-          python3 hello_world.py
+  my-second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ls -la
