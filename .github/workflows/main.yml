@@ -10,7 +10,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: fichier
-          path: conf.json 
+          path: text.txt
        
   my_second_job:
     needs: my_first_job
